@@ -47,6 +47,9 @@ This data set cointains different information and markers around informal employ
 Source:
 https://data.worldbank.org/indicator/SL.ISV.IFRM.ZS
 
+Proportion of informal employment - ILO: 
+
+https://www.ilo.org/shinyapps/bulkexplorer38/?lang=en&segment=indicator&id=SDG_A831_SEX_RT_A
 
 #### **About Me**
 
