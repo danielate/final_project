@@ -1,0 +1,48 @@
+---
+title: "Data"
+author: "Daniela Teran"
+date: "3/20/2020"
+output: html_document
+---
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+
+library(dplyr)
+library(ggplot2)
+library(readr)
+library(tidyr)
+library(readxl)
+library(janitor)
+
+```
+
+```{r,include=FALSE}
+
+gii_latam <- read_excel(path = "GII.xlsx", skip = 1)%>%
+  clean_names() %>%
+  arrange(hdi_rank_2018) %>%
+  filter(country %in% c("Argentina", "Bahamas", "Barbados", "Belize", "	Bolivia (Plurinational State of)", "Brazil", "Chile", "Colombia", "Costa Rica", "Cuba", "Dominican Republic", "Ecuador", "El Salvador", "Guatemala", "Guyana", "Haiti", "Honduras", "Jamaica", "Mexico", "Nicaragua", "Panama", "Paraguay", "Peru", "Saint Lucia", "Suriname", "Trinidad and Tobago", "Uruguay", "Venezuela"))
+  
+gii_latam
+
+```
+```{r, include=FALSE}
+
+informal_latam <- read_excel(path = "Informal_employment.xlsx", skip = 3) %>%
+  clean_names() %>%
+  select(country_name, x2018) %>%
+  filter(country_name %in% c("Argentina", "Bahamas", "Barbados", "Belize", "	Bolivia (Plurinational State of)", "Brazil", "Chile", "Colombia", "Costa Rica", "Cuba", "Dominican Republic", "Ecuador", "El Salvador", "Guatemala", "Guyana", "Haiti", "Honduras", "Jamaica", "Mexico", "Nicaragua", "Panama", "Paraguay", "Peru", "Saint Lucia", "Suriname", "Trinidad and Tobago", "Uruguay", "Venezuela"))
+
+informal_latam
+```
+
+```{r, include=FALSE}
+
+informal_latam_ilo <- read_excel(path = "Proportion_informal_employment.xlsx")%>%
+  clean_names() %>%
+  select(ref_area_label, sex_label, time, obs_value) %>%
+  filter(ref_area_label %in% c("Argentina", "Bahamas", "Barbados", "Belize", "	Bolivia (Plurinational State of)", "Brazil", "Chile", "Colombia", "Costa Rica", "Cuba", "Dominican Republic", "Ecuador", "El Salvador", "Guatemala", "Guyana", "Haiti", "Honduras", "Jamaica", "Mexico", "Nicaragua", "Panama", "Paraguay", "Peru", "Saint Lucia", "Suriname", "Trinidad and Tobago", "Uruguay", "Venezuela")) %>%
+  filter(sex_label %in% "Sex: Female")
+
+informal_latam_ilo
+```
